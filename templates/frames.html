@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<br>
+<h1 class="test_form text-name">BY FRAMES</h1>
+<br>
+<br>
+<br>
+<form action="" method="post" novalidate>
+    <div>
+        {{ form.csrf_token }}
+    </div>
+
+    {% for field in form if field.name != 'csrf_token' and field.name != 'submit' %}
+    <div class="text-f">
+
+        {%set d = 'img/' + filenames[loop.index - 1]%}
+        <img class="img" src="{{url_for('static', filename=d)}}"
+             alt="здесь должна была быть картинка, но не нашлась" width="400">
+
+        <div class="mdl-radio">{{ field() }}</div>
+        {% for error in field.errors %}
+        <div class="error">{{ error }}</div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    {{ form.submit(class="c-button") }}
+    <br>
+    <br>
+    <br>
+    <br>
+</form>
+{% endblock %}

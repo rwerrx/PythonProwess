@@ -1,7 +1,7 @@
 from random import sample
 
-from data import db_session
-from data.question import Questions
+from helpers import db_session
+from helpers.question import Questions
 from forms.informatics_answers_form import InformaticsAnswerForm
 from server import app
 form = InformaticsAnswerForm()

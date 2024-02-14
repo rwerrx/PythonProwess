@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+
+{% for elem in result %}
+
+<span>вопрос: {{ elem[0] }}, Ваш ответ: {{elem[2]}}, правильный ответ: {{elem[1]}}</span>
+{% if elem[2] == elem[1] %}
+<p>Ответ верный</p>
+{% else %}
+<p>Ответ неверный</p>
+{% endif %}
+{% endfor %}
+<p class="text-f center">количество правильных ответов: {{ cnt }}</p>
+{% endblock %}

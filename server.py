@@ -1,13 +1,13 @@
 from random import shuffle, choice, sample
 
 import flask
-from flask import Flask, render_template, redirect, jsonify, request
+from flask import Flask, render_template, redirect, jsonify
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 
-from data import db_session
-from data.question import Questions
-from data import users
-from data.users import User
+from helpers import db_session
+from helpers.question import Questions
+from helpers import users
+from helpers.users import User
 from forms.LoginForm import LoginForm
 from forms.informatics_answers_form import InformaticsAnswerForm
 from forms.user import RegisterForm
@@ -32,35 +32,35 @@ def index():
 @login_required
 def informatics():
     form = InformaticsAnswerForm()
-    db_sess = db_session.create_session()
-    if request.method == "GET":
-        necessary_questions = sample(db_sess.query(Questions).all(), k=5)
-        questions = []
-        correct_answers = []
-        form_answers = [form.answer1, form.answer2, form.answer3, form.answer4, form.answer5]
+    current_answers = []
+    with app.app_context():
+        db_sess = db_session.create_session()
+        print("------1------")
+    necessary_questions = sample(db_sess.query(Questions).all(), k=5)
+    questions = []
+    correct_answers = []
+    form_answers = [form.answer1, form.answer2, form.answer3, form.answer4, form.answer5]
 
-        for i in range(5):
-            correct_answers.append(necessary_questions[i].correct_answer)
-            list_of_answers = [necessary_questions[i].correct_answer, necessary_questions[i].wrong_answer1,
-                               necessary_questions[i].wrong_answer2]
-            questions.append(necessary_questions[i].question)
-            shuffle(list_of_answers)
-            form_answers[i].choices = list_of_answers
-        return render_template('informatics.html', questions=questions, correct_answers=correct_answers,
-                               form=form)
-
+    for i in range(5):
+        correct_answers.append(necessary_questions[i].correct_answer)
+        list_of_answers = [necessary_questions[i].correct_answer, necessary_questions[i].wrong_answer1,
+                           necessary_questions[i].wrong_answer2]
+        questions.append(necessary_questions[i].question)
+        shuffle(list_of_answers)
+        form_answers[i].choices = list_of_answers
+    current_answers[current_user.id] = correct_answers
     if form.validate_on_submit():
-        questions = [request.form.get("question1"), request.form.get("question2"), request.form.get("question3"),
-                     request.form.get("question4"), request.form.get("question5")]
         all_result = []
         cnt_cor_answers = 0
         for i, answer in enumerate(list(form)[:-2]):
-            cor_answer = db_sess.query(Questions).filter(Questions.question == questions[i]).first().correct_answer
-            all_result.append([questions[i], cor_answer, answer.data])
-            if cor_answer == answer.data:
+            result = [correct_answers[i], necessary_questions[i], answer.data]
+            all_result.append(result)
+            if current_answers[current_user.id][i] == answer.data:
                 cnt_cor_answers += 1
 
         return render_template('points.html', title='ответы', result=all_result, cnt=cnt_cor_answers)
+    return render_template('informatics.html', questions=questions, correct_answers=correct_answers,
+                           form=form)
 
 
 @login_manager.user_loader
@@ -151,7 +151,7 @@ def not_allowed(error):
 
 
 def main():
-    db_session.global_init("db/base.sqlite")
+    db_session.global_init("./db/base.sqlite")
     db_sess = db_session.create_session()
     user = db_sess.query(User).first()
     app.run()
