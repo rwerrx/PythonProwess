@@ -25,11 +25,11 @@ current_answers_soundtracks = {}
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', title='Главная страница')
+
+    return render_template('index.html', title='Главная страница', bgc='#F2D9FD')
 
 
 @app.route("/informatics", methods=['GET', 'POST'])
-@login_required
 def informatics():
     form = InformaticsAnswerForm()
     current_answers = []
@@ -132,7 +132,7 @@ def register():
         db_sess.commit()
         return redirect('/login')
     return render_template('register.html',
-                           title='Регистрация', form=form)
+                           title='Регистрация', form=form, bgc="#E0CEFB")
 
 
 @app.errorhandler(401)
