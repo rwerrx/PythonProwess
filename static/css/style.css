@@ -11,6 +11,7 @@
 
 html {
     font-family: 'Montserrat';
+    font-size: 8px;
 }
 
 a {
@@ -18,20 +19,22 @@ a {
 }
 
 .container {
-    max-width: 1672px;
+    padding: 0 10rem;
+
     margin: 0 auto;
 }
 
+
 header .container {
 
-    padding-top: 30px;
+    padding-top: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
-    font-size: 34px;
+    font-size: 3rem;
     font-family: "Plaster";
     color: black;
 }
@@ -43,54 +46,91 @@ nav {
 
 nav a {
     text-align: center;
-    margin-left: 22px;
-    font-size: 17px;
-    height: 50px;
-    width: 150px;
-    padding: 15px 0;
+    margin-left: 2.2rem;
+    font-size: 1.7rem;
+    height: 5rem;
+    width: 15rem;
+    padding: 1.5rem 0;
     background-color: #E0CEFB;
-    border-radius: 25px;
-    border: 1px solid #6C6565;
-    box-shadow: 0px 4px 5px 0px #9e9797;
-    
+    border-radius: 2.5rem;
+    border: 0.1rem solid #6C6565;
+    box-shadow: 0px 0.4rem 0.5rem 0px #9e9797;
+
 }
 
 .index {
     display: flex;
     justify-content: space-between;
-    margin-top: 211px;
+    margin-top: 15rem;
     align-items: center;
+    position: relative;
 }
+
 
 .index .left-column {
     display: flex;
     flex-direction: column;
-    width: 690px;
-    
+    width: 41%;
 
+}
+
+.right-column {
+    width: 51%;
+}
+
+.right-column img {
+    width: 100%;
 }
 
 .left-column h2 {
-    font-size: 60px;
+    font-size: 5rem;
     font-family: "Montserrat Alternates";
 }
+
+
+
+
+
 .left-column span {
-    font-size: 23px;
-    width: 350px;
-    margin-top: 35px;
+    font-size: 2.3rem;
+    width: 35rem;
+    margin-top: 3.5rem;
 
 }
+
 .left-column a {
-    font-size: 35px;
+    font-size: 3.5rem;
     font-family: "Montserrat Alternates";
     color: black;
     background-color: #A297F2;
-    width: 350px;
-    height: 90px;
-    padding-top: 25px;
+    width: 30rem;
+    height: 8.5rem;
+    padding-top: 2.5rem;
     text-align: center;
-    border-radius: 45px;
+    border-radius: 4.5rem;
     border: 1px solid #6C6565;
-    box-shadow: 0px 4px 15px #9e9797;
-    margin-top: 76px;
+    box-shadow: 0px 0.4rem 0.5rem 0px #9e9797;
+    margin-top: 7.6rem;
+}
+
+.contacts {
+    position: absolute;
+    right: 0;
+    bottom: -12rem;
+}
+
+.contacts img {
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+
+    /* .left-column h2 {
+        font-size: 45px;
+    } */
+    html {
+        font-size: 6px;
+    }
 }

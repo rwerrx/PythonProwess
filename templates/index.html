@@ -2,13 +2,19 @@
 
 {% block content %}
 
-<div class="container index">
-    <div class="left-column">
+<div class="index">
+    <div class="index-column left-column">
         <h2>Открой мир Python с нашими тестами!</h2>
         <span>Тесты на знание базы языка программирования Python</span>
         <a href="informatics.html">Пройти</a>
     </div>
-    <img src="static/img/main.png">
+    <div class="index-column right-column"><img src="static/img/main.png"></div>
+    
+    <div class="contacts">
+        <a href="#"><img src="{{url_for('static', filename='img/vk.png')}}" alt=""></a>
+        <a href="#"><img src="{{url_for('static', filename='img/tg.png')}}" alt=""></a>
+        <a href="#"><img src="{{url_for('static', filename='img/inst.png')}}" alt=""></a>
+    </div>
 
 </div>
 
