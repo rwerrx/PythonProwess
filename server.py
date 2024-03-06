@@ -154,7 +154,7 @@ def main():
     db_session.global_init("./db/base.sqlite")
     db_sess = db_session.create_session()
     user = db_sess.query(User).first()
-    app.run()
+    app.run(debug=True, port="8080")
 
 
 if __name__ == '__main__':
