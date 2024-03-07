@@ -48,19 +48,19 @@ def informatics():
         questions.append(necessary_questions[i].question)
         shuffle(list_of_answers)
         form_answers[i].choices = list_of_answers
-    current_answers[current_user.id] = correct_answers
+    # current_answers[current_user.id] = correct_answers
     if form.validate_on_submit():
         all_result = []
         cnt_cor_answers = 0
         for i, answer in enumerate(list(form)[:-2]):
             result = [correct_answers[i], necessary_questions[i], answer.data]
             all_result.append(result)
-            if current_answers[current_user.id][i] == answer.data:
+            if correct_answers[current_user.id][i] == answer.data:
                 cnt_cor_answers += 1
 
         return render_template('points.html', title='ответы', result=all_result, cnt=cnt_cor_answers)
     return render_template('informatics.html', questions=questions, correct_answers=correct_answers,
-                           form=form)
+                           form=form, bgc="#A297F2")
 
 
 @login_manager.user_loader
@@ -154,7 +154,7 @@ def main():
     db_session.global_init("./db/base.sqlite")
     db_sess = db_session.create_session()
     user = db_sess.query(User).first()
-    app.run(debug=True, port="8080")
+    app.run(debug=True, port="8000")
 
 
 if __name__ == '__main__':

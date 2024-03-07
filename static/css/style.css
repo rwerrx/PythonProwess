@@ -136,11 +136,11 @@ nav a {
         font-size: 6px;
     }
 }
-@media screen and (min-width: 1600px) {
+/* @media screen and (min-width: 1600px) {
     html {
         font-size: 14px;
     }
-}
+} */
 /* регистрация и авторизаия */
 .form-container {
 
@@ -156,7 +156,7 @@ nav a {
     margin: 6.25rem;
 }
 
-form {
+.form-section {
     /* max-width: 500px; */
     width: 80rem;
     height: auto;
@@ -167,6 +167,15 @@ form {
     margin: 0 auto;
 }
 
+
+input:-webkit-autofill {
+    background-color: black !important;
+}
+
+
+input:autofill {
+    background-color: black !important;
+}
 .form-control {
     width: 100%;
     height: 6.3rem;
@@ -176,7 +185,21 @@ form {
     margin-bottom: 6.5rem;
     font-family: "Montserrat Alternates";
     font-size: 3rem;
+    transition: all 1s ;
 }
+.form-control:focus {
+    outline: none;
+    
+}
+
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    background-color: black;
+}
+/* .form-control:active {
+    background-color: black;
+} */
 
 .go-button {
     display: block;
@@ -191,4 +214,43 @@ form {
     font-size: 4.6rem;
     margin: 7rem auto;
 
+}
+/* .message {
+    color: red;
+} */
+.remember-me {
+    font-size: 2.5rem;
+    font-family: "Montserrat Alternates";
+
+
+}
+.remember-button {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+
+
+/* тесты */
+.tests-section {
+    font-size: 25px;
+    margin: 0 auto;
+    width: 900px;
+    background-color: #F2D9FD;
+    border-radius: 35.5px;
+    padding: 92px;
+}
+.question-control {
+   
+}
+
+
+.question {
+    background-color: #E0CEFB;
+    padding: 25px 70px;
+    border-radius: 20px;
+    margin: 25px auto;
+}
+.aaa {
+    
 }
