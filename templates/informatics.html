@@ -10,7 +10,7 @@
             <div class="question">
                 {{ questions[loop.index - 1] }}
             </div>
-            <div>
+            <div class="answers">
                 {{ field() }}
             </div>
             {% for error in field.errors %}
@@ -18,7 +18,7 @@
             {% endfor %}
         </div>
         {% endfor %}
-        {{ form.submit(class="c-button") }}
+        {{ form.submit(class="go-button") }}
     </form>
 </div>
 
