@@ -18,7 +18,7 @@
                 {{ form.name(class="form-control", placeholder="ВАШ НИКНЕЙМ") }}
                 {% for error in form.name.errors %}
                 <p class="alert alert-danger" role="alert">
-                    {{ error }}
+                    <p class="message">{{ error }}</p>
                     {% endfor %}
                 </p>
             </div>
@@ -26,7 +26,7 @@
                 {{ form.password(class="form-control", type="password", placeholder="ПАРОЛЬ") }}<br>
                 {% for error in form.password.errors %}
                 <p class="alert alert-danger" role="alert">
-                    {{ error }}
+                    <p class="message">{{ error }}</p>
                 </p>
                 {% endfor %}
             </div>
@@ -34,7 +34,7 @@
                 {{ form.password_again(class="form-control", type="password", placeholder="ПОВТОРИТЕ ПАРОЛЬ") }}<br>
                 {% for error in form.password_again.errors %}
                 <div class="alert alert-danger" role="alert">
-                    {{ error }}
+                    <p class="message">{{ error }}</p>
                 </div>
                 {% endfor %}
             </div>

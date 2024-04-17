@@ -165,6 +165,7 @@ from helpers.users import User
 from forms.LoginForm import LoginForm
 from forms.informatics_answers_form import InformaticsAnswerForm
 from forms.user import RegisterForm
+# from test import correct_answers
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
@@ -172,9 +173,8 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-current_answers_frames = {}
-current_answers_soundtracks = {}
 
+all_tests = {}
 
 @app.route('/')
 @app.route('/index')
@@ -188,8 +188,11 @@ def informatics():
     form = InformaticsAnswerForm()
     db_sess = db_session.create_session()
     if request.method == "GET":
+        
         necessary_questions = sample(db_sess.query(Questions).all(), k=5)
+        all_tests[current_user.id] = necessary_questions
         questions = []
+        print(all_tests[current_user.id], '------------2--------')
         correct_answers = []
         form_answers = [form.answer1, form.answer2, form.answer3, form.answer4, form.answer5]
 
@@ -204,17 +207,26 @@ def informatics():
                                form=form)
 
     if form.validate_on_submit():
-        questions = [request.form.get("question1"), request.form.get("question2"), request.form.get("question3"),
-                     request.form.get("question4"), request.form.get("question5")]
+        # print(qqq17[current_user.id])
+        answers = [request.form.get("answer1"), request.form.get("answer2"), request.form.get("answer3"),
+                     request.form.get("answer4"), request.form.get("answer5")]
         all_result = []
         cnt_cor_answers = 0
         for i, answer in enumerate(list(form)[:-2]):
-            print(questions)
+            # print(questions)
             # print(db_sess.query(Questions).filter(Questions.question == questions[i]), '---------------------aaa------------')
-            cor_answer = db_sess.query(Questions).filter(Questions.question == questions[i]).first().correct_answer
-            all_result.append([questions[i], cor_answer, answer.data])
-            if cor_answer == answer.data:
+            # cor_answer = db_sess.query(Questions).filter(Questions.question == questions[i]).first().correct_answer
+            # print(all_tests[current_user.id][i])
+            
+
+            print(db_sess.query(Questions).filter(Questions.question == all_tests[current_user.id][i].question))
+            # print(db_sess.query(Questions).filter(Questions.question == question).first, '--------!!!!!!!!!!!')
+            # cor_answer = db_sess.query(Questions).filter(Questions.question == question).first.correct_answer
+            
+            all_result.append([all_tests[current_user.id][i].question, all_tests[current_user.id][i].correct_answer, answers[i]])
+            if all_tests[current_user.id][i].correct_answer == answers[i]:
                 cnt_cor_answers += 1
+
 
         return render_template('points.html', title='ответы', result=all_result, cnt=cnt_cor_answers)
 

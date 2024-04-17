@@ -16,4 +16,8 @@ class Questions(SqlAlchemyBase, UserMixin, SerializerMixin):
     wrong_answer1 = sqlalchemy.Column(sqlalchemy.String, unique=True)
     wrong_answer2 = sqlalchemy.Column(sqlalchemy.String, unique=True)
 
+    def __repr__(self):
+        return f"{self.question}"
+
+
 

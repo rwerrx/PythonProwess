@@ -271,3 +271,9 @@ input:-webkit-autofill:active {
 .answers {
     font-size: 2.4rem;
 }
+
+.message {
+    font-size: 2.5rem;
+    font-family: "Montserrat Alternates";
+    color: #902828b4;
+}
