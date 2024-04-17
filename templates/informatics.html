@@ -8,10 +8,15 @@
         {% for field in form if field.name != 'csrf_token' and field.name != 'submit' %}
         <div class="question-control">
             <div class="question">
-                {{ questions[loop.index - 1] }}
+                <p>{{ exp[loop.index - 1] }}</p>
+                <div class="code">
+                    {{ questions[loop.index - 1] }}
+                </div>
+                
+                
             </div>
             <div class="answers">
-                {{ field() }}
+                <p>{{ field() }}</p>
             </div>
             {% for error in field.errors %}
             <p class="message">{{ error }}</p>

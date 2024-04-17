@@ -28,7 +28,12 @@
                 </span>
                 {% endfor %}
             </div>
-            <p class="remember-me">{{ form.remember_me(class="remember-button") }} {{ form.remember_me.label }}</p>
+            <label class="checkbox style-b">
+                {{ form.remember_me() }}
+                <div class="checkbox__checkmark"></div>
+                <div class="checkbox__body">ЗАПОМНИТЬ МЕНЯ</div>
+            </label>
+            
 
         </div>
         <a>{{ form.submit(type="submit", class="go-button") }}</a>

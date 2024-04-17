@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 
 }
 
@@ -150,19 +151,13 @@ nav a {
 
 
 /* регистрация и авторизация */
-.form-container {
 
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-aro; */
-}
 
 .form-container h1 {
     text-align: center;
     font-size: 4rem;
     font-family: "Montserrat Alternates";
-    margin: 6.25rem;
+    margin: 3rem;
 }
 
 .form-section {
@@ -177,6 +172,97 @@ nav a {
     border: solid 0.1rem #6C6565;
 }
 
+
+.remember-sub input {
+    /* display: inline-block; */
+    text-align: center;
+    align-items: center;
+  }
+  
+  .remember-sub label {
+    display: block;
+    color: var(--white);
+    font-size: 1.5rem;
+  }
+  
+  .authorization-forms input[type=submit] {
+    margin: 0 auto;
+    /* margin-top: 2rem; */
+    display: block;
+    width: 50%;
+  }
+  
+  
+  
+  
+  .checkbox.style-b {
+    display: inline-block;
+    position: relative;
+    padding-left: 3rem;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .checkbox.style-b input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkbox.style-b input:checked~.checkbox__checkmark {
+    background-color: #fff;
+  }
+  
+  .checkbox.style-b input:checked~.checkbox__checkmark:after {
+    opacity: 1;
+  }
+  
+  .checkbox.style-b:hover input~.checkbox__checkmark {
+    background-color: #eee;
+  }
+  
+  .checkbox.style-b:hover input:checked~.checkbox__checkmark {
+    background-color: #fff;
+  }
+  
+  .checkbox.style-b .checkbox__checkmark {
+    position: absolute;
+    top: 0.3rem;
+    left: 0;
+    height: 2rem;
+    width: 2rem;
+    background-color: #fff;
+    border: 2px solid #333;
+    transition: background-color 0.25s ease;
+    border-radius: 4px;
+  }
+  
+  .checkbox.style-b .checkbox__checkmark:after {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+    width: 0.4rem;
+    height: 1rem;
+    border: solid #333;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .checkbox.style-b .checkbox__body {
+    line-height: 1.55;
+    font-size: 2rem;
+
+  }
+  
+  
 
 input:-webkit-autofill {
     background-color: black !important;
@@ -216,16 +302,16 @@ input:-webkit-autofill:active {
 
 .go-button {
     display: block;
-    width: 30rem;
-    height: 8rem;
+    width: 20rem;
+    height: 6rem;
     border-radius: 4.5rem;
     background-color: #A297F2;
     color: black;
     border: solid 0.125rem #6C6565;
     box-shadow: 0px 0.4rem 0.5rem 0px #9e9797;
     font-family: "Montserrat Alternates";
-    font-size: 3rem;
-    margin: 9rem auto 0 auto;
+    font-size: 2rem;
+    margin: 2rem auto;
 
 }
 
@@ -256,24 +342,86 @@ input:-webkit-autofill:active {
     padding: 5rem;
     font-family: "Montserrat";
 }
-
-.question-control {}
-
-
-.question {
-    background-color: #E0CEFB;
-    padding: 4rem 70px;
-    border-radius: 20px;
-    margin: 4rem auto;
-    font-size: 2.7rem;
+/* 
+.question-control {} */
+.question-control {
+    border: 2px solid #333;
+    border-radius: 3rem;
+    margin: 3rem;
+    padding: 3rem;
 }
 
+.question {
+    /* background-color: #E0CEFB; */
+    padding: 1rem 70px;
+    border-radius: 20px;
+    margin: 1rem auto;
+    font-size: 2.7rem;
+    width: 100%;
+
+
+}
+.question p {
+    background-color: #E0CEFB;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 2rem;
+    width: 100%;
+    font-family: "Montserrat Alternates";
+
+}
+.question .code  {
+    background-color: #281d41a1;
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 2rem;
+    width: 100%;
+    font-size: 2rem;
+    color: white;
+}
+.question .code:empty {
+    display: none;
+}
 .answers {
-    font-size: 2.4rem;
+    font-size: 3.5rem;
+    font-family: "Montserrat Alternates";
+    margin-left: 15rem;
+
 }
 
 .message {
     font-size: 2.5rem;
     font-family: "Montserrat Alternates";
     color: #902828b4;
+}
+.answer {
+    font-size: 2rem;
+    font-family: "Montserrat Alternates";
+    margin: 2rem;
+    padding: 1rem;
+    border: 2px solid #333;
+    border-radius: 1rem;
+
+}
+.answer .question {
+    background-color: #5a59596a;
+    
+}
+
+.wrong {
+    color: rgba(180, 31, 31, 0.486);
+    font-weight: bold;
+}
+.correct {
+    color: rgba(16, 187, 16, 0.776);
+    font-weight: bold;
+}
+.cnt {
+    font-size: 1rem;
+    margin: 2rem;
+}
+.again {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1.5rem;
 }

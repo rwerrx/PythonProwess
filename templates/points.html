@@ -1,19 +1,29 @@
 {% extends "base.html" %}
 
 {% block content %}
-<br>
-<br>
-<br>
-<br>
 
-{% for elem in result %}
+<div >
+    {% for elem in result %}
+    <div class="answer">
 
-<span>вопрос: {{ elem[0] }}, Ваш ответ: {{elem[2]}}, правильный ответ: {{elem[1]}}</span>
-{% if elem[2] == elem[1] %}
-<p>Ответ верный</p>
-{% else %}
-<p>Ответ неверный</p>
-{% endif %}
-{% endfor %}
-<p class="text-f center">количество правильных ответов: {{ cnt }}</p>
+        <p class="question">{{ elem[0] }}</p>
+        <p>{{elem[2]}}</p>
+        <p>Ваш ответ: {{elem[3]}}</p>
+        <p>Правильный ответ: {{elem[1]}}</p>
+ 
+     {% if elem[3] == elem[1] %}
+ 
+     <p class="correct">верно</p>
+     {% else %}
+ 
+     <p class="wrong">неверно</p>
+     {% endif %}
+    </div>
+    
+     {% endfor %}
+    
+    <p class="cnt">количество правильных ответов: {{ cnt }}</p>
+    <a href="{{url_for('informatics')}}" class="go-button again">ПРОЙТИ ТЕСТ ЕЩЕ РАЗ</a>
+</div>
+
 {% endblock %}
