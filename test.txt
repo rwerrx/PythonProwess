@@ -1,0 +1,139 @@
+91. Как изменить элемент с индексом 2 в списке "my_list" на значение "NewValue"?
+
+a) my_list.replace(2, "NewValue")
+b) my_list[2] = "NewValue" - **Правильный вариант**
+c) modify(my_list, 2, "NewValue")
+d) replace(my_list, 2, "NewValue")
+
+92. Что вернет выражение bool(0)?
+
+a) True
+b) False - **Правильный вариант**
+c) 1
+d) Error
+
+93. Как проверить, что все элементы списка "my_list" удовлетворяют условию, больше 10?
+
+a) checkAll(x > 10 for x in my_list) - **Правильный вариант**
+b) allItemsMoreThan(my_list, 10)
+c) everyGreaterThan(my_list, 10)
+d) checkMoreThan(my_list, 10)
+
+94. Какая функция используется для нахождения максимального значения в списке?
+
+a) max() - **Правильный вариант**
+b) maximum()
+c) findMax()
+d) maxVal()
+
+95. Что вернет выражение "Hello".lower()?
+
+a) "HELLO"
+b) "hello" - **Правильный вариант**
+c) "Hello"
+d) "HeLLo"
+
+96. Как объединить элементы списка "my_list" в строку, разделенную запятыми?
+
+a) ", ".join(my_list) - **Правильный вариант**
+b) joinList(", ", my_list)
+c) combine(my_list, ", ")
+d) concat(my_list, ", ")
+
+97. Что вернет выражение "apple".count('p')?
+
+a) 1
+b) 2 - **Правильный вариант**
+c) 3
+d) 0
+
+98. Как получить текущее время в формате "ЧЧ:ММ:СС"?
+
+a) now.time()
+b) time.now()
+c) datetime.now().strftime("%H:%M:%S") - **Правильный вариант**
+d) current_time()
+
+99. Что делает метод remove() для списка?
+
+a) Добавляет элемент в начало списка
+b) Удаляет элемент из списка по значению - **Правильный вариант**
+c) Очищает весь список
+d) Заменяет элемент в списке
+
+100. Как создать кортеж с элементами "a", "b", "c"?
+
+a) ("a", "b", "c") - **Правильный вариант**
+b) tuple("a", "b", "c")
+c) createTuple("a", "b", "c")
+d) a, b, c
+
+101. Что вернет выражение max(7, 3, 9, 2)?
+
+a) 7
+b) 2
+c) 9 - **Правильный вариант**
+d) 3
+
+102. Как проверить, что все символы строки "my_str" являются буквами?
+
+a) all(char.isalpha() for char in my_str) - **Правильный вариант**
+b) isletters(my_str)
+c) checkAlpha(my_str)
+d) isAlphaChars(my_str)
+
+103. Что вернет выражение "Python is fun".split(" ")?
+
+a) ["Python", "is", "fun"] - **Правильный вариант**
+b) "Python is fun"
+c) ["Python", "is", "fun", ""]
+d) ["Pythonisfun"]
+
+104. Как получить индекс первого вхождения элемента "X" в списке "my_list"?
+
+a) index = my_list.find("X")
+b) index = my_list.index("X") - **Правильный вариант**
+c) index = findIndex(my_list, "X")
+d) index = indexOf("X", my_list)
+
+105. Что вернет выражение "hello".upper()?
+
+a) "hello"
+b) "HELLO" - **Правильный вариант**
+c) "Hello"
+d) "HEllo"
+
+106. Как создать пустой множество?
+
+a) set()
+b) {} - **Правильный вариант**
+c) newSet()
+d) set([])
+
+107. Что будет результатом операции 6 ** 2?
+
+a) 36 - **Правильный вариант**
+b) 12
+c) 18
+d) 64
+
+108. Как проверить, что все элементы словаря "my_dict" имеют значения True?
+
+a) all(value for value in my_dict.values())
+b) all(value == True for value in my_dict.values()) - **Правильный вариант**
+c) checkAllTrue(my_dict)
+d) isAllTrueValues(my_dict)
+
+109. Что вернет выражение "happy".replace("p", "t", 1)?
+
+a) "htppy"
+b) "hatpy"
+c) "hatty" - **Правильный вариант**
+d) "hattty"
+
+110. Как создать список, содержащий повторяющееся значение "X" 5 раз?
+
+a) ["X" * 5]
+b) ["X"] * 5 - **Правильный вариант**
+c) repeat(["X"], 5)
+d) list("X" * 5)

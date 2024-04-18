@@ -2,16 +2,15 @@
 
 {% block content %}
 
-<div >
+<div class="answers-container">
     {% for elem in result %}
     <div class="answer">
 
         <p class="question">{{ elem[0] }}</p>
-        <p>{{elem[2]}}</p>
-        <p>Ваш ответ: {{elem[3]}}</p>
+        <p>Ваш ответ: {{elem[2]}}</p>
         <p>Правильный ответ: {{elem[1]}}</p>
  
-     {% if elem[3] == elem[1] %}
+     {% if elem[2] == elem[1] %}
  
      <p class="correct">верно</p>
      {% else %}

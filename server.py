@@ -32,37 +32,35 @@ def informatics():
     db_sess = db_session.create_session()
     if request.method == "GET":
         
-        necessary_questions = sample(db_sess.query(Questions).all(), k=5)
+        necessary_questions = sample(db_sess.query(Questions).all(), k=7)
         all_tests[current_user.id] = necessary_questions
         questions = []
         correct_answers = []
         explanation = []
-        form_answers = [form.answer1, form.answer2, form.answer3, form.answer4, form.answer5]
+        form_answers = [form.answer1, form.answer2, form.answer3, form.answer4, form.answer5,
+          form.answer6,  form.answer7]
 
-        for i in range(5):
+        for i in range(7):
             correct_answers.append(necessary_questions[i].correct_answer)
             list_of_answers = [necessary_questions[i].correct_answer, necessary_questions[i].wrong_answer1,
                                necessary_questions[i].wrong_answer2]
             questions.append(necessary_questions[i].question)
-            explanation.append(necessary_questions[i].explanation)
             shuffle(list_of_answers)
             form_answers[i].choices = list_of_answers
         return render_template('informatics.html', questions=questions, correct_answers=correct_answers,
-                               form=form, exp=explanation)
+                               form=form)
 
     if form.validate_on_submit():
         answers = [request.form.get("answer1"), request.form.get("answer2"), request.form.get("answer3"),
-                     request.form.get("answer4"), request.form.get("answer5")]
+                     request.form.get("answer4"), request.form.get("answer5"), request.form.get("answer6"),
+                      request.form.get("answer7")]
         all_result = []
         cnt_cor_answers = 0
         for i, answer in enumerate(list(form)[:-2]):
 
 
-            print(db_sess.query(Questions).filter(Questions.question == all_tests[current_user.id][i].question))
-
             
-            all_result.append([all_tests[current_user.id][i].question, all_tests[current_user.id][i].correct_answer,
-                               all_tests[current_user.id][i].explanation, answers[i]])
+            all_result.append([all_tests[current_user.id][i].question, all_tests[current_user.id][i].correct_answer, answers[i]])
             if all_tests[current_user.id][i].correct_answer == answers[i]:
                 cnt_cor_answers += 1
 

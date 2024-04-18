@@ -9,4 +9,10 @@ class InformaticsAnswerForm(FlaskForm):
     answer3 = RadioField(choices=[], default=1, validators=[DataRequired('choose an answer')], validate_choice=False)
     answer4 = RadioField(choices=[], default=1, validators=[DataRequired('choose an answer')], validate_choice=False)
     answer5 = RadioField(choices=[], default=1, validators=[DataRequired('choose an answer')], validate_choice=False)
+    answer6 = RadioField(choices=[], default=1, validators=[DataRequired('choose an answer')], validate_choice=False)
+    answer7 = RadioField(choices=[], default=1, validators=[DataRequired('choose an answer')], validate_choice=False)
+
+
+    
+
     submit = SubmitField('Ответить')
