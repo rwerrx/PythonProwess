@@ -16,14 +16,14 @@ class User(SqlAlchemyBase, UserMixin, SerializerMixin):
                            primary_key=True, autoincrement=True)
     surname = sqlalchemy.Column(sqlalchemy.String)
     name = sqlalchemy.Column(sqlalchemy.String)
-    age = sqlalchemy.Column(sqlalchemy.Integer)
-    position = sqlalchemy.Column(sqlalchemy.String)
-    speciality = sqlalchemy.Column(sqlalchemy.String)
-    address = sqlalchemy.Column(sqlalchemy.String)
+    # age = sqlalchemy.Column(sqlalchemy.Integer)
+    # position = sqlalchemy.Column(sqlalchemy.String)
+    # speciality = sqlalchemy.Column(sqlalchemy.String)
+    # address = sqlalchemy.Column(sqlalchemy.String)
     email = sqlalchemy.Column(sqlalchemy.String)
     hashed_password = sqlalchemy.Column(sqlalchemy.String)
-    modified_date = sqlalchemy.Column(sqlalchemy.DateTime,
-                                      default=datetime.datetime.now)
+    # modified_date = sqlalchemy.Column(sqlalchemy.DateTime,
+                                    #   default=datetime.datetime.now)
 
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)
